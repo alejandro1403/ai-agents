@@ -11,13 +11,7 @@ class CleanerAgent extends Agent {
     }
 
     setup(initialState={}) {
-        this.table = {
-            "1,0" : "L",
-            "0,1" : "A",
-            "0,0" : "R",
-            "1,1" : "A",
-            "default": "A"
-        }
+
     }
 
     //[1, [1, 1]]
@@ -27,14 +21,7 @@ class CleanerAgent extends Agent {
      * In this case, the state is just obtained as the join of the perceptions
      */
     send() {
-        let viewkey = this.perception[0] + "," + [this.perception[1][this.perception[0]]];
-
-        if (this.table[viewkey]){
-            return this.table[viewkey];
-        } else{
-            return this.table["default"];
-        }
-   
+        return this.actions[Math.floor(Math.random() * this.actions.length)]     
         // @TODO
         // Implement based on the cost of each action
         //return this.table[this.perception.join(",")]
